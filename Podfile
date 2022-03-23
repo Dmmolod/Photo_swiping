@@ -6,5 +6,8 @@ target 'Photo_swiping' do
   use_frameworks!
 
   # Pods for Photo_swiping
+  
+    #Firebase
+    pod 'Firebase/Crashlytics'
 
 end
