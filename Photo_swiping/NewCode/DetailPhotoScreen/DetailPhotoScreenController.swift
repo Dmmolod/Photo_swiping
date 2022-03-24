@@ -9,21 +9,22 @@ import UIKit
 
 class DetailPhotoScreenController: UIViewController {
     
+    weak var delegate: DetailPhotoScreenControllerDelegate?
+    
     let detailPhotoScreen = DetailPhotoScreenView()
     var allContent: [Content]
     var currentContentIndex: Int
+    private var currentContent: Content {
+        return allContent[currentContentIndex]
+    }
     
     init(currentContentIndex: Int, allContent: [Content]) {
         self.allContent = allContent
         self.currentContentIndex = currentContentIndex
-        
+
         super.init(nibName: nil, bundle: nil)
         
-        guard currentContentIndex >= 0,
-              currentContentIndex < allContent.count else { return }
-        
-        let content = allContent[currentContentIndex]
-        detailPhotoScreen.configure(content)
+        detailPhotoScreen.configure(currentContent)
     }
     
     required init?(coder: NSCoder) {
@@ -33,17 +34,31 @@ class DetailPhotoScreenController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view = detailPhotoScreen
-        view.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(deletePhoto(rec:))))
+        
+        view.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(deletePhoto)))
+        
         detailPhotoScreen.setupButtonsAction(back: UIAction { _ in self.backButtonPressed()},
                                              like: UIAction { _ in self.likeButtonPressed()},
                                              previous: UIAction { _ in self.previousButtonPressed()},
                                              next: UIAction { _ in self.nextButtonPressed()})
+        
         detailPhotoScreen.commentField.delegate = self
     }
     
-    @objc private func deletePhoto(rec: UILongPressGestureRecognizer) {
-        guard rec.state != .changed else { return }
-        print("DELETE")
+    @objc private func deletePhoto(_ sender: UILongPressGestureRecognizer) {
+        if sender.state != UIGestureRecognizer.State.began { return }
+        print("OKEY")
+        guard let currentId = currentContent.id else { return }
+        let ac = UIAlertController(title: "Delete this photo?", message: nil, preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .destructive, handler: { _ in
+            print("DELETE")
+            print(self.allContent.count)
+            self.delegate?.detailPhotoScreen(self, deleteIndexContent: self.currentContentIndex)
+            self.allContent.remove(at: self.currentContentIndex)
+            ContentManager.removeContent(from: currentId) }))
+        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        
+        present(ac, animated: true)
     }
     
     private func backButtonPressed() {
@@ -51,8 +66,9 @@ class DetailPhotoScreenController: UIViewController {
     }
     
     private func likeButtonPressed() {
-        
-        print("like")
+        currentContent.like = currentContent.like ? false : true
+        detailPhotoScreen.configure(currentContent)
+        ContentManager.saveContent(currentContent)
     }
     
     private func previousButtonPressed() {

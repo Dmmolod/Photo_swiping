@@ -41,9 +41,11 @@ PODS:
   - nanopb/decode (2.30908.0)
   - nanopb/encode (2.30908.0)
   - PromisesObjC (2.0.0)
+  - SwiftyKeychainKit (1.0.0-beta.2)
 
 DEPENDENCIES:
   - Firebase/Crashlytics
+  - SwiftyKeychainKit (= 1.0.0-beta.2)
 
 SPEC REPOS:
   trunk:
@@ -56,6 +58,7 @@ SPEC REPOS:
     - GoogleUtilities
     - nanopb
     - PromisesObjC
+    - SwiftyKeychainKit
 
 SPEC CHECKSUMS:
   Firebase: 7e8fe528c161b9271d365217a74c16aaf834578e
@@ -67,7 +70,8 @@ SPEC CHECKSUMS:
   GoogleUtilities: e0913149f6b0625b553d70dae12b49fc62914fd1
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
+  SwiftyKeychainKit: dcbb1098d4fa1548282287a6beb186f9393e9025
 
-PODFILE CHECKSUM: bcf68d22819a520bde231d901e67b1815c3595d1
+PODFILE CHECKSUM: d4affc1b474abca5842f89d6137996001eb91c06
 
 COCOAPODS: 1.11.3

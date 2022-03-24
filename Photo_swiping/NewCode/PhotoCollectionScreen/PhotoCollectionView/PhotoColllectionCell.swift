@@ -29,7 +29,6 @@ class PhotoColllectionCell: UICollectionViewCell {
     }
     
     private func setupUI() {
-        backgroundColor = .systemGray2
         layer.cornerRadius = 20
         contentView.addSubview(imageView)
         

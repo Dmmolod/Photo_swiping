@@ -13,12 +13,18 @@ class PhotoCollectionController: UIViewController {
     weak var delegate: PhotoCollectionControllerDelegate?
     private let photoCollectionView = PhotoCollectionView()
     private var allContentModel = [Content]()
+    var ignoreDefaultContentList: Int = Int() {
+        didSet {
+            allContentModel.remove(at: ignoreDefaultContentList)
+            photoCollectionView.photoCollection.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view = photoCollectionView
-        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
-        setupDefaultImages()
+        
+        allContentModel.append(contentsOf: ContentManager.getDefaultContent())
         setSavedPhoto()
         setupCollection()
         photoCollectionView.logOutButtonAction = UIAction { _ in self.logOutButtonPressed()}
@@ -46,14 +52,15 @@ class PhotoCollectionController: UIViewController {
     }
     
     func updatePhotoCollection(_ imageToAdd: UIImage) {
-        let newContent = Content(photo: imageToAdd)
-        allContentModel.insert(newContent, at: 0)
-        ContentManager.makeAndSaveContent(newContent)
+        let contentToSave = Content(photo: imageToAdd)
+        let id = ContentManager.saveContent(contentToSave)
+        let content = Content(id: id, photo: imageToAdd, comment: nil, like: false)
+        allContentModel.insert(content, at: 0)
         photoCollectionView.photoCollection.reloadData()
     }
     
     private func setSavedPhoto() {
-        guard let savedContents = ContentManager.getContents() else { return }
+        let savedContents = ContentManager.getContents()
         
         allContentModel.insert(contentsOf: savedContents, at: 0)
         photoCollectionView.photoCollection.reloadData()
@@ -61,14 +68,6 @@ class PhotoCollectionController: UIViewController {
     
     private func logOutButtonPressed() {
         delegate?.photoCollectionDidLogOut(self)
-    }
-    
-    private func setupDefaultImages() {
-        let allContent: [Content] = (0...13).compactMap { number in
-            guard let photo = UIImage(named: "image\(number)") else { return nil }
-            return Content(photo: photo, comment: nil)
-        }
-        self.allContentModel = allContent
     }
     
     private func setupCollection() {

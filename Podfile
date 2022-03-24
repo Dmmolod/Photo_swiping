@@ -11,5 +11,9 @@ target 'Photo_swiping' do
   
     #Firebase
     pod 'Firebase/Crashlytics'
+    
+    #KeyChain
+    pod 'SwiftyKeychainKit', '1.0.0-beta.2'
+
 
 end

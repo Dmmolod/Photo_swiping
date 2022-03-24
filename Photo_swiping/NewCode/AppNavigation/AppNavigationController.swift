@@ -8,6 +8,7 @@ class AppNavigationController: UINavigationController {
     init() {
         super.init(rootViewController: authorizationScreen)
         self.navigationBar.isHidden = true
+        self.interactivePopGestureRecognizer?.isEnabled = false
         authorizationScreen.delegate = self
     }
     
@@ -36,12 +37,24 @@ extension AppNavigationController: PhotoCollectionControllerDelegate {
    
     func photoCollection(_ photoCollectionController: PhotoCollectionController, didSelectPhoto contentIndex: Int, from allContent: [Content]) {
         let detailScreen = DetailPhotoScreenController(currentContentIndex: contentIndex, allContent: allContent)
+        detailScreen.delegate = self
         pushViewController(detailScreen, animated: true)
     }
     func photoCollectionDidLogOut(_ photoCollectionController: PhotoCollectionController) {
         popViewController(animated: true)
     }
     
+}
+
+extension AppNavigationController: DetailPhotoScreenControllerDelegate {
+    func detailPhotoScreen(_ detailPhotoScreenController: DetailPhotoScreenController, deleteIndexContent: Int) {
+        popViewController(animated: true)
+        (topViewController as? PhotoCollectionController)?.ignoreDefaultContentList = deleteIndexContent
+    }
+    
+    func detailPhotoScreenBackPressed(_ detailPhotoScreenController: DetailPhotoScreenController) {
+        popViewController(animated: true)
+    }
 }
 
 

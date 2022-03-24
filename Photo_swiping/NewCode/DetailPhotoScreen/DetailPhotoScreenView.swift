@@ -27,9 +27,13 @@ class DetailPhotoScreenView: UIView {
         [backButton, likeButton, previousButton, nextButton].enumerated().forEach({ $1.addAction(actions[$0], for: .touchUpInside) })
     }
     
-    func configure(_ content: Content) {
-        currentPhoto.image = content.photo
+    func configure(_ content: Content, isLeftSwipe: Bool = false) {
+        
+        if !isLeftSwipe { currentPhoto.image = content.photo }
+        
         commentField.text = content.comment
+        let heartStyle = content.like ? "heart.fill" : "heart"
+        likeButton.setBackgroundImage(UIImage(systemName: heartStyle), for: .normal)
         likeButton.tintColor = content.like ? .systemPink : .systemGray4
     }
     
@@ -52,9 +56,7 @@ class DetailPhotoScreenView: UIView {
         UIView.animate(withDuration: 0.3, delay: 0) {
             newPhotoView.frame.origin.x -= self.frame.size.width
         } completion: { _ in
-            if !isLeftSwipe { self.configure(newContent) }
-            self.commentField.text = newContent.comment
-            self.likeButton.tintColor = newContent.like ? .systemPink : .systemGray3
+            self.configure(newContent, isLeftSwipe: isLeftSwipe)
             newPhotoView.removeFromSuperview()
         }
     }
@@ -87,7 +89,6 @@ class DetailPhotoScreenView: UIView {
                           paddingBottom: 30 - 22,
                           paddingLeading: 20, width: 44, height: 44)
         
-        likeButton.setBackgroundImage(UIImage(systemName: "heart"), for: .normal)
         likeButton.anchor(top: backButton.topAnchor,
                           bottom: backButton.bottomAnchor,
                           trailing: navigationBar.trailingAnchor,

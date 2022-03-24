@@ -1,13 +1,13 @@
 import Foundation
 import UIKit
 
-struct Content {
+class Content {
     var id: String? = nil
     var photo: UIImage
     var comment: String?
     var like: Bool = false
     
-    init(id: String, photo: UIImage, comment: String?, like: Bool) {
+    init(id: String?, photo: UIImage, comment: String?, like: Bool) {
         self.id = id
         self.photo = photo
         self.comment = comment

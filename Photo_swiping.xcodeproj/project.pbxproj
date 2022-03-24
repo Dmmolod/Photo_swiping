@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		906C8E58966265C5CD961985 /* Pods_Photo_swiping.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B3E8FF8BAB41D2C32396CB1 /* Pods_Photo_swiping.framework */; };
+		D976C65227ECAF8B00407BDB /* DetailPhotoScreenControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D976C65127ECAF8B00407BDB /* DetailPhotoScreenControllerDelegate.swift */; };
 		D9A1E30027EB46400025B1B4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D9A1E2FF27EB46400025B1B4 /* GoogleService-Info.plist */; };
 		D9B413F227E8C7DB00088EE7 /* AuthorizationScreenController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B413F127E8C7DB00088EE7 /* AuthorizationScreenController+Extension.swift */; };
 		D9B413F527E8E4A100088EE7 /* ContentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B413F427E8E4A100088EE7 /* ContentManager.swift */; };
@@ -40,6 +41,7 @@
 		7475BAF5E7EEFC720D06CAEA /* Pods-Photo_swiping.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Photo_swiping.debug.xcconfig"; path = "Target Support Files/Pods-Photo_swiping/Pods-Photo_swiping.debug.xcconfig"; sourceTree = "<group>"; };
 		9B3E8FF8BAB41D2C32396CB1 /* Pods_Photo_swiping.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Photo_swiping.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D67030EA008332C6F82798D2 /* Pods-Photo_swiping.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Photo_swiping.release.xcconfig"; path = "Target Support Files/Pods-Photo_swiping/Pods-Photo_swiping.release.xcconfig"; sourceTree = "<group>"; };
+		D976C65127ECAF8B00407BDB /* DetailPhotoScreenControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPhotoScreenControllerDelegate.swift; sourceTree = "<group>"; };
 		D9A1E2FF27EB46400025B1B4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D9B413F127E8C7DB00088EE7 /* AuthorizationScreenController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthorizationScreenController+Extension.swift"; sourceTree = "<group>"; };
 		D9B413F427E8E4A100088EE7 /* ContentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentManager.swift; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				D9D6A4EA27E8472D00A6194E /* DetailPhotoScreenController.swift */,
+				D976C65127ECAF8B00407BDB /* DetailPhotoScreenControllerDelegate.swift */,
 				D9D6A4E927E8472D00A6194E /* DetailPhotoScreenView.swift */,
 				D9D6A50B27E849A400A6194E /* SwipeSide.swift */,
 			);
@@ -250,7 +253,7 @@
 				D9D6A4C027E8460D00A6194E /* Sources */,
 				D9D6A4C127E8460D00A6194E /* Frameworks */,
 				D9D6A4C227E8460D00A6194E /* Resources */,
-				D9A1E30127EB7B6A0025B1B4 /* ShellScript */,
+				D9A1E30127EB7B6A0025B1B4 /* FirebaseCrashlytics */,
 				71A7A060371A867FB69154DE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
@@ -326,7 +329,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Photo_swiping/Pods-Photo_swiping-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D9A1E30127EB7B6A0025B1B4 /* ShellScript */ = {
+		D9A1E30127EB7B6A0025B1B4 /* FirebaseCrashlytics */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -335,6 +338,7 @@
 			);
 			inputPaths = (
 			);
+			name = FirebaseCrashlytics;
 			outputFileListPaths = (
 			);
 			outputPaths = (
@@ -388,6 +392,7 @@
 				D9D6A4EC27E8472D00A6194E /* DetailPhotoScreenController.swift in Sources */,
 				D9D6A4E027E846E500A6194E /* AppNavigationController.swift in Sources */,
 				D9D6A4E527E8470A00A6194E /* AuthorizationScreenController.swift in Sources */,
+				D976C65227ECAF8B00407BDB /* DetailPhotoScreenControllerDelegate.swift in Sources */,
 				D9D6A4C827E8460D00A6194E /* AppDelegate.swift in Sources */,
 				D9D6A4EB27E8472D00A6194E /* DetailPhotoScreenView.swift in Sources */,
 				D9D6A50127E8478600A6194E /* User.swift in Sources */,
