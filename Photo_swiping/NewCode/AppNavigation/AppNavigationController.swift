@@ -1,5 +1,6 @@
 import Foundation
 import UIKit
+import SVProgressHUD
 
 class AppNavigationController: UINavigationController {
     
@@ -15,7 +16,6 @@ class AppNavigationController: UINavigationController {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
 }
 
 extension AppNavigationController: AuthorizationScreenControllerDelegate {
@@ -27,7 +27,7 @@ extension AppNavigationController: AuthorizationScreenControllerDelegate {
     func authorizationScreen(_ authorizationScreen: AuthorizationScreenController, login: User) {
         let photoCollection = PhotoCollectionController()
         photoCollection.delegate = self
-        pushViewController(photoCollection, animated: true)
+        self.pushViewController(photoCollection, animated: true)
     }
     
     

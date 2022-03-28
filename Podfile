@@ -9,6 +9,8 @@ target 'Photo_swiping' do
 
   # Pods for Photo_swiping
   
+    pod 'SVProgressHUD'
+  
     #Firebase
     pod 'Firebase/Crashlytics'
     

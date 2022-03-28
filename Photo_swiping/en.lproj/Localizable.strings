@@ -1,0 +1,23 @@
+
+// MARK: Authorization screen
+    "Welcome" = "Welcome";
+    "Enter your name" = "Enter your name";
+    "Enter your password" = "Enter your password";
+    "Sign Up" = "Sign Up";
+    "Login" = "Login";
+    "Password error" = "Password error";
+    "Password must consist of 4 digits" = "Password must consist of 4 digits";
+    "Wrong password" = "Wrong password";
+    "Try again" = "Try again";
+    "Anonymous" = "Anonymous";
+    "Аноним" = "Anonymous";
+
+// MARK: PhotoCollection
+    "Gallery" = "Gallery";
+    "Camera" = "Camera";
+
+// MARK: Detail screen
+    "Delete this photo?" = "Delete this photo?";
+    "DELETE" = "DELETE";
+    "Cancel" = "Cancel";
+

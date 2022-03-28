@@ -1,21 +1,23 @@
 import UIKit
 
 class DetailPhotoScreenView: UIView {
-    private typealias AnimateConstaints = (previousCenter: NSLayoutConstraint,
-                                           nextLeading: NSLayoutConstraint)
     
+    private lazy var customScrollView = ScrollViewForKeyboardControl()
     private let navigationBar = UIView()
     private let backButton = UIButton()
     private let likeButton = UIButton()
     private let previousButton = UIButton()
     private let nextButton = UIButton()
-    private let photoContainer = UIView()
-    private let currentPhoto = UIImageView(image: UIImage(systemName: "tortoise"))
+    let photoContainer = UIView()
+    let currentPhoto = UIImageView(image: UIImage(systemName: "tortoise"))
     let commentField = UITextField()
+    var bottomConstraint = NSLayoutConstraint()
+    var zoomingView = ImageZoomView()
 
     init() {
         super.init(frame: .zero)
         setupUI()
+        currentPhoto.isUserInteractionEnabled = true
     }
     
     required init?(coder: NSCoder) {
@@ -61,11 +63,22 @@ class DetailPhotoScreenView: UIView {
         }
     }
     
+    @objc func zoomingPhoto() {
+        zoomingView = ImageZoomView(frame: currentPhoto.bounds)
+        addSubview(zoomingView)
+        zoomingView.startCenter = photoContainer.center
+        zoomingView.image = currentPhoto.image
+        zoomingView.backgroundColor = .black
+        
+        UIView.animate(withDuration: 0.3, delay: 0) {
+            self.zoomingView.setupNewFrame(frame: self.frame)
+        }
+    }
+    
     private func setupUI() {
         setupBackground(name: "nightCity")
         let bottomContainer = UIView()
         let textFieldContainer = UIView()
-        backgroundColor = .white
         
         // MARK: Elements with blur effect
         bottomContainer.setupBlur(with: .light)
@@ -73,15 +86,24 @@ class DetailPhotoScreenView: UIView {
         textFieldContainer.setupBlur(with: .light, blurAlpha: 1)
         
         // MARK: AddSubviews
-        [navigationBar, photoContainer, bottomContainer, textFieldContainer].forEach({ addSubview($0) })
+        addSubview(customScrollView)
+        customScrollView.anchor(top: topAnchor, leading: leadingAnchor, trailing: trailingAnchor)
+        customScrollView.dimensionAnchors(width: widthAnchor)
+        customScrollView.container.heightAnchor.constraint(equalTo: heightAnchor).isActive = true
+        bottomConstraint = customScrollView.bottomAnchor.constraint(equalTo: bottomAnchor)
+        bottomConstraint.isActive = true
+        let container = customScrollView.container
+        
+        [navigationBar, photoContainer, bottomContainer, textFieldContainer].forEach({ container.addSubview($0) })
         [backButton, likeButton].forEach({ navigationBar.addSubview($0) })
         
         // MARK: Navigation bar setup
         navigationBar.backgroundColor = .clear
-        navigationBar.anchor(top: topAnchor,
-                             bottom: safeAreaLayoutGuide.topAnchor,
-                             leading: leadingAnchor,
-                             trailing: trailingAnchor, paddingBottom: -60)
+        navigationBar.anchor(top: container.topAnchor,
+                             bottom: container.safeAreaLayoutGuide.topAnchor,
+                             leading: container.leadingAnchor,
+                             trailing: container.trailingAnchor, paddingBottom: -60)
+        
         backButton.setBackgroundImage(UIImage(systemName: "xmark.circle"), for: .normal)
         backButton.tintColor = .systemGray4
         backButton.anchor(bottom: navigationBar.bottomAnchor,
@@ -96,7 +118,7 @@ class DetailPhotoScreenView: UIView {
         likeButton.dimensionAnchors(width: backButton.widthAnchor, height: backButton.heightAnchor)
         
         // MARK: Photo container setup
-        photoContainer.anchor(top: navigationBar.bottomAnchor, bottom: textFieldContainer.topAnchor, leading: leadingAnchor, trailing: trailingAnchor)
+        photoContainer.anchor(top: navigationBar.bottomAnchor, bottom: textFieldContainer.topAnchor, leading: container.leadingAnchor, trailing: container.trailingAnchor)
         photoContainer.addSubview(currentPhoto)
         
         currentPhoto.layer.cornerRadius = 22
@@ -122,7 +144,7 @@ class DetailPhotoScreenView: UIView {
                             paddingLeading: 20, paddingTrailing: 20, height: 40)
         
         // MARK: Bottom container setup
-        bottomContainer.anchor(top: safeAreaLayoutGuide.bottomAnchor,bottom: bottomAnchor, leading: leadingAnchor, trailing: trailingAnchor, paddingTop: -50)
+        bottomContainer.anchor(top: container.safeAreaLayoutGuide.bottomAnchor,bottom: container.bottomAnchor, leading: container.leadingAnchor, trailing: container.trailingAnchor, paddingTop: -50)
         [previousButton, nextButton].forEach({
             bottomContainer.addSubview($0)
             let imageName = $0 == previousButton ? "arrow.left" : "arrow.right"

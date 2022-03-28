@@ -10,16 +10,6 @@ import UIKit
 
 extension AuthorizationScreenController: UITextFieldDelegate {
     
-    func authorizationScreen(_ authorizationScreen: AuthorizationScreenView, passwordIncorrect alert: UIAlertController) {
-        present(alert, animated: true)
-    }
-    
-    func authorizationScreen(_ authorizationScreen: AuthorizationScreenView, login user: User) {
-        let vc = PhotoCollectionController()
-        vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: true)
-    }
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if let fieldIndex = self.authorizationScreen.textFields.firstIndex(of: textField),
            fieldIndex + 1 < authorizationScreen.textFields.count {

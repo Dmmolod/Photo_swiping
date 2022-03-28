@@ -10,8 +10,13 @@
 		906C8E58966265C5CD961985 /* Pods_Photo_swiping.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B3E8FF8BAB41D2C32396CB1 /* Pods_Photo_swiping.framework */; };
 		D976C65227ECAF8B00407BDB /* DetailPhotoScreenControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D976C65127ECAF8B00407BDB /* DetailPhotoScreenControllerDelegate.swift */; };
 		D9A1E30027EB46400025B1B4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D9A1E2FF27EB46400025B1B4 /* GoogleService-Info.plist */; };
+		D9B09A8027F1F4BF00E9295E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D9B09A8227F1F4BF00E9295E /* Localizable.strings */; };
+		D9B09A8627F1F79C00E9295E /* String+Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B09A8527F1F79C00E9295E /* String+Localizable.swift */; };
 		D9B413F227E8C7DB00088EE7 /* AuthorizationScreenController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B413F127E8C7DB00088EE7 /* AuthorizationScreenController+Extension.swift */; };
 		D9B413F527E8E4A100088EE7 /* ContentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B413F427E8E4A100088EE7 /* ContentManager.swift */; };
+		D9BA046127EE03C400B6E662 /* ScrollViewForKeyboardControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BA046027EE03C400B6E662 /* ScrollViewForKeyboardControl.swift */; };
+		D9BA046327EE040300B6E662 /* ImageZoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BA046227EE040300B6E662 /* ImageZoomView.swift */; };
+		D9BA046727EE1F3600B6E662 /* AnimateTapButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BA046627EE1F3600B6E662 /* AnimateTapButton.swift */; };
 		D9D6A4C827E8460D00A6194E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D6A4C727E8460D00A6194E /* AppDelegate.swift */; };
 		D9D6A4CA27E8460D00A6194E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D6A4C927E8460D00A6194E /* SceneDelegate.swift */; };
 		D9D6A4D127E8460E00A6194E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9D6A4D027E8460E00A6194E /* Assets.xcassets */; };
@@ -31,7 +36,7 @@
 		D9D6A4FC27E8476B00A6194E /* PhotoCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D6A4F927E8476B00A6194E /* PhotoCollectionView.swift */; };
 		D9D6A50027E8478600A6194E /* UserDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D6A4FE27E8478600A6194E /* UserDataManager.swift */; };
 		D9D6A50127E8478600A6194E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D6A4FF27E8478600A6194E /* User.swift */; };
-		D9D6A50527E847F600A6194E /* UIView+Anchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D6A50427E847F600A6194E /* UIView+Anchor.swift */; };
+		D9D6A50527E847F600A6194E /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D6A50427E847F600A6194E /* UIView+Extensions.swift */; };
 		D9D6A50927E848C700A6194E /* TextFieldType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D6A50727E848C700A6194E /* TextFieldType.swift */; };
 		D9D6A50A27E848C700A6194E /* TextFieldType+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D6A50827E848C700A6194E /* TextFieldType+extension.swift */; };
 		D9D6A50C27E849A400A6194E /* SwipeSide.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D6A50B27E849A400A6194E /* SwipeSide.swift */; };
@@ -43,8 +48,15 @@
 		D67030EA008332C6F82798D2 /* Pods-Photo_swiping.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Photo_swiping.release.xcconfig"; path = "Target Support Files/Pods-Photo_swiping/Pods-Photo_swiping.release.xcconfig"; sourceTree = "<group>"; };
 		D976C65127ECAF8B00407BDB /* DetailPhotoScreenControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPhotoScreenControllerDelegate.swift; sourceTree = "<group>"; };
 		D9A1E2FF27EB46400025B1B4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D9B09A8127F1F4BF00E9295E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D9B09A8327F1F4EF00E9295E /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		D9B09A8427F1F4EF00E9295E /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D9B09A8527F1F79C00E9295E /* String+Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localizable.swift"; sourceTree = "<group>"; };
 		D9B413F127E8C7DB00088EE7 /* AuthorizationScreenController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthorizationScreenController+Extension.swift"; sourceTree = "<group>"; };
 		D9B413F427E8E4A100088EE7 /* ContentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentManager.swift; sourceTree = "<group>"; };
+		D9BA046027EE03C400B6E662 /* ScrollViewForKeyboardControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewForKeyboardControl.swift; sourceTree = "<group>"; };
+		D9BA046227EE040300B6E662 /* ImageZoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageZoomView.swift; sourceTree = "<group>"; };
+		D9BA046627EE1F3600B6E662 /* AnimateTapButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimateTapButton.swift; sourceTree = "<group>"; };
 		D9D6A4C427E8460D00A6194E /* Photo_swiping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Photo_swiping.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9D6A4C727E8460D00A6194E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D9D6A4C927E8460D00A6194E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,7 +78,7 @@
 		D9D6A4F927E8476B00A6194E /* PhotoCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCollectionView.swift; sourceTree = "<group>"; };
 		D9D6A4FE27E8478600A6194E /* UserDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDataManager.swift; sourceTree = "<group>"; };
 		D9D6A4FF27E8478600A6194E /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		D9D6A50427E847F600A6194E /* UIView+Anchor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Anchor.swift"; sourceTree = "<group>"; };
+		D9D6A50427E847F600A6194E /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		D9D6A50727E848C700A6194E /* TextFieldType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldType.swift; sourceTree = "<group>"; };
 		D9D6A50827E848C700A6194E /* TextFieldType+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TextFieldType+extension.swift"; sourceTree = "<group>"; };
 		D9D6A50B27E849A400A6194E /* SwipeSide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeSide.swift; sourceTree = "<group>"; };
@@ -125,6 +137,7 @@
 				D9D6A4DD27E846CD00A6194E /* NewCode */,
 				D9D6A50327E847E900A6194E /* Utils */,
 				D9D6A50227E847AA00A6194E /* Basic */,
+				D9B09A8227F1F4BF00E9295E /* Localizable.strings */,
 				D9D6A4D527E8460E00A6194E /* Info.plist */,
 				D9A1E2FF27EB46400025B1B4 /* GoogleService-Info.plist */,
 			);
@@ -220,7 +233,11 @@
 		D9D6A50327E847E900A6194E /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				D9D6A50427E847F600A6194E /* UIView+Anchor.swift */,
+				D9D6A50427E847F600A6194E /* UIView+Extensions.swift */,
+				D9BA046027EE03C400B6E662 /* ScrollViewForKeyboardControl.swift */,
+				D9BA046227EE040300B6E662 /* ImageZoomView.swift */,
+				D9BA046627EE1F3600B6E662 /* AnimateTapButton.swift */,
+				D9B09A8527F1F79C00E9295E /* String+Localizable.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -287,6 +304,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = D9D6A4BB27E8460D00A6194E;
 			productRefGroup = D9D6A4C527E8460D00A6194E /* Products */;
@@ -304,6 +322,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9D6A4D427E8460E00A6194E /* LaunchScreen.storyboard in Resources */,
+				D9B09A8027F1F4BF00E9295E /* Localizable.strings in Resources */,
 				D9D6A4D127E8460E00A6194E /* Assets.xcassets in Resources */,
 				D9A1E30027EB46400025B1B4 /* GoogleService-Info.plist in Resources */,
 			);
@@ -377,7 +396,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9D6A4E727E8471000A6194E /* AuthorizationScreenViewDelegate.swift in Sources */,
-				D9D6A50527E847F600A6194E /* UIView+Anchor.swift in Sources */,
+				D9BA046127EE03C400B6E662 /* ScrollViewForKeyboardControl.swift in Sources */,
+				D9D6A50527E847F600A6194E /* UIView+Extensions.swift in Sources */,
 				D9D6A50927E848C700A6194E /* TextFieldType.swift in Sources */,
 				D9D6A50C27E849A400A6194E /* SwipeSide.swift in Sources */,
 				D9D6A50A27E848C700A6194E /* TextFieldType+extension.swift in Sources */,
@@ -386,6 +406,7 @@
 				D9B413F227E8C7DB00088EE7 /* AuthorizationScreenController+Extension.swift in Sources */,
 				D9D6A4F327E8474500A6194E /* Content.swift in Sources */,
 				D9D6A4FC27E8476B00A6194E /* PhotoCollectionView.swift in Sources */,
+				D9BA046727EE1F3600B6E662 /* AnimateTapButton.swift in Sources */,
 				D9D6A4FA27E8476B00A6194E /* PhotoColllectionCell.swift in Sources */,
 				D9D6A4FB27E8476B00A6194E /* AddPhotoCell.swift in Sources */,
 				D9D6A4E427E8470A00A6194E /* AuthorizationScreenView.swift in Sources */,
@@ -396,20 +417,32 @@
 				D9D6A4C827E8460D00A6194E /* AppDelegate.swift in Sources */,
 				D9D6A4EB27E8472D00A6194E /* DetailPhotoScreenView.swift in Sources */,
 				D9D6A50127E8478600A6194E /* User.swift in Sources */,
+				D9BA046327EE040300B6E662 /* ImageZoomView.swift in Sources */,
 				D9D6A4CA27E8460D00A6194E /* SceneDelegate.swift in Sources */,
 				D9B413F527E8E4A100088EE7 /* ContentManager.swift in Sources */,
 				D9D6A4F427E8474500A6194E /* PhotoCollectionControllerDelegate.swift in Sources */,
 				D9D6A50027E8478600A6194E /* UserDataManager.swift in Sources */,
+				D9B09A8627F1F79C00E9295E /* String+Localizable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		D9B09A8227F1F4BF00E9295E /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D9B09A8127F1F4BF00E9295E /* en */,
+				D9B09A8427F1F4EF00E9295E /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		D9D6A4D227E8460E00A6194E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				D9D6A4D327E8460E00A6194E /* Base */,
+				D9B09A8327F1F4EF00E9295E /* ru */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -421,6 +454,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -481,6 +515,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";

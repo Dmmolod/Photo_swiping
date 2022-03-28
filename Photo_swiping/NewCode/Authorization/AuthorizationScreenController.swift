@@ -1,11 +1,13 @@
 import Foundation
 import UIKit
+import SVProgressHUD
 
 class AuthorizationScreenController: UIViewController {
     
     weak var delegate: AuthorizationScreenControllerDelegate?
     let authorizationScreen = AuthorizationScreenView()
     private var user: User?
+    private let blind = UIView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,17 +37,15 @@ class AuthorizationScreenController: UIViewController {
         guard let user = UserDataManager.loadUser() else { return }
         self.user = user
         authorizationScreen.setupUIWith(user)
-        print(user)
     }
     
     private func joinButtonPressed() {
-        
         let passwordText = textFromField(fieldType: .password)
         if !TextFieldType.password.checkInfoIsReadyFunction()(passwordText) {
-            let alert = UIAlertController(title: "Password error",
-                                          message: "Password must consist of 4 digits ",
+            let alert = UIAlertController(title: "Password error".localizable,
+                                          message: "Password must consist of 4 digits".localizable,
                                           preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+            alert.addAction(UIAlertAction(title: "OK".localizable, style: .cancel))
             delegate?.authorizationScreen(self, passwordIncorrect: alert)
             return
         }
@@ -54,16 +54,19 @@ class AuthorizationScreenController: UIViewController {
         
         if let user = user {
             if passwordText != user.password {
-                let alert = UIAlertController(title: "Wrong password", message: "Try again", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .destructive))
+                let alert = UIAlertController(title: "Wrong password".localizable, message: "Try again".localizable, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK".localizable, style: .destructive))
                 delegate?.authorizationScreen(self, passwordIncorrect: alert)
+                authorizationScreen.textFields[TextFieldType.password.textFieldIndex()].text = nil
                 return
             }
+            view.endEditing(true)
             delegate?.authorizationScreen(self, login: user)
             return
         }
+        
         let name = textFromField(fieldType: .name)
-        let user = User(name: (name.isEmpty ? "Anonymous" : name),
+        let user = User(name: (name.isEmpty ? "Anonymous".localizable : name),
                         password: textFromField(fieldType: .password))
         UserDataManager.saveUser(user)
         delegate?.authorizationScreen(self, login: user)

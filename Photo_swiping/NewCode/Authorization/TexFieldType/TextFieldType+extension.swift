@@ -71,8 +71,8 @@ extension TextFieldType {
     
     func placeholder() -> String {
         switch self {
-        case .password: return "Enter your password"
-        case .name: return "Enter your name"
+        case .password: return "Enter your password".localizable
+        case .name: return "Enter your name".localizable
         }
     }
     

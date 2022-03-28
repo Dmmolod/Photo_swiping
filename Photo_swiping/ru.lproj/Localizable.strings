@@ -1,0 +1,22 @@
+
+// MARK: Authorization screen
+    "Welcome" = "Добро пожаловать";
+    "Enter your name" = "Введите ваше имя";
+    "Enter your password" = "Введите ваш пароль";
+    "Sign Up" = "Регистрация";
+    "Login" = "Войти";
+    "Password error" = "Короткий пароль";
+    "Password must consist of 4 digits" = "Пароль должен содеражать 4 цифры";
+    "Wrong password" = "Неверный пароль";
+    "Try again" = "Попробуйте еще раз";
+    "OK" = "OK";
+    "Anonymous" = "Аноним";
+
+// MARK: PhotoCollection
+    "Gallery" = "Галерея";
+    "Camera" = "Камера";
+
+// MARK: DetailScreen
+    "Delete this photo?" = "Удалить это фото?";
+    "DELETE" = "Удалить";
+    "Cancel" = "Отмена";

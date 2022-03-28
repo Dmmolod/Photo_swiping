@@ -37,9 +37,9 @@ extension PhotoCollectionController: UICollectionViewDelegate, UICollectionViewD
             return
         }
         let ac = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        ac.addAction(UIAlertAction(title: "Camera", style: .default, handler: { _ in self.presentImagePicker(sourceType: .camera)}))
-        ac.addAction(UIAlertAction(title: "Gallery", style: .default, handler: { _ in self.presentImagePicker(sourceType: .photoLibrary)}))
-        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        ac.addAction(UIAlertAction(title: "Camera".localizable, style: .default, handler: { _ in self.presentImagePicker(sourceType: .camera)}))
+        ac.addAction(UIAlertAction(title: "Gallery".localizable, style: .default, handler: { _ in self.presentImagePicker(sourceType: .photoLibrary)}))
+        ac.addAction(UIAlertAction(title: "Cancel".localizable, style: .cancel))
         
         present(ac, animated: true)
     }

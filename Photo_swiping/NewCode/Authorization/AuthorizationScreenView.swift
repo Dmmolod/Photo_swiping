@@ -3,12 +3,12 @@ import UIKit
 
 class AuthorizationScreenView: UIView {
     
-    private let backgroundImage = UIImageView(image: UIImage(named: "backgroundCube"))
+    private let backgroundImage = UIImageView(image: UIImage(named: "nightCity"))
     private let containerAuth = UIView()
     private let blurView = UIVisualEffectView(effect: UIBlurEffect(style: .light))
     private let title: UILabel = {
         let title = UILabel()
-        title.text = "Welcome!"
+        title.text = "Welcome".localizable + "!"
         title.textAlignment = .center
         title.font = .systemFont(ofSize: 20, weight: .heavy)
         return title
@@ -20,18 +20,23 @@ class AuthorizationScreenView: UIView {
         textFields = TextFieldType.allCases.map({ Self.textField(fieldType: $0) })
         super.init(frame: .zero)
         setupUI()
+        addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapDetected)))
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    @objc private func tapDetected() {
+        endEditing(true)
+    }
+    
     func setupUIWith(_ user: User) {
         guard var text = title.text else { return }
         text.removeLast()
-        text += text == "Welcome" ? ", \(user.name)!" : ""
+        text += text == "Welcome".localizable ? ", \(user.name.localizable)!" : ""
         title.text = text
-        joinButton.setTitle("Login", for: .normal)
+        joinButton.setTitle("Login".localizable, for: .normal)
         
         textFields[TextFieldType.name.textFieldIndex()].anchor(height: 0)
     }
@@ -85,6 +90,6 @@ class AuthorizationScreenView: UIView {
         joinButton.anchor(bottom: containerAuth.bottomAnchor, paddingBottom: 20)
         joinButton.centerX(inView: containerAuth)
         
-        joinButton.setTitle("Sign Up", for: .normal)
+        joinButton.setTitle("Sign Up".localizable, for: .normal)
     }
 }

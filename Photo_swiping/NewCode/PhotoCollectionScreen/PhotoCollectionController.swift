@@ -37,7 +37,7 @@ class PhotoCollectionController: UIViewController {
     func contentIndex(from indexPath: IndexPath) -> Int? {
         let contentIndex = indexPath.row - 1
         
-        guard (contentIndex) < allContentModel.count else { return nil }
+        guard contentIndex < allContentModel.count else { return nil }
         return contentIndex
     }
     
