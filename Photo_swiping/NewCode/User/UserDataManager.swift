@@ -10,10 +10,14 @@ class UserDataManager {
     static private let userDataURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent(fileName)
     
     static func saveUser(_ user: User) {
+        
         try? keychain.set(user.password, for: key)
+        
         let userToSave = User(name: user.name, password: "not_now")
+        
         guard let fileURL = Self.userDataURL,
         let userData = try? JSONEncoder().encode(userToSave) else { return }
+        
         if FileManager.default.fileExists(atPath: fileURL.path) {
             try? FileManager.default.removeItem(atPath: fileURL.path)
         }
