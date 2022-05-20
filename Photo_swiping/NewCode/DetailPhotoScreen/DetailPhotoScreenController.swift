@@ -58,7 +58,6 @@ class DetailPhotoScreenController: UIViewController {
         guard let currentId = currentContent.id else { return }
         let ac = UIAlertController(title: "Delete this photo?".localizable, message: nil, preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "DELETE".localizable, style: .destructive, handler: { _ in
-            print(self.allContent.count)
             self.delegate?.detailPhotoScreen(self, deleteIndexContent: self.currentContentIndex)
             self.allContent.remove(at: self.currentContentIndex)
             ContentManager.removeContent(from: currentId) }))
@@ -91,7 +90,7 @@ class DetailPhotoScreenController: UIViewController {
     private func likeButtonPressed() {
         currentContent.like = currentContent.like ? false : true
         detailPhotoScreen.configure(currentContent)
-        ContentManager.saveContent(currentContent)
+        let _ = ContentManager.saveContent(currentContent)
     }
     
     @objc private func previousButtonPressed() {

@@ -92,7 +92,6 @@ class ContentManager {
             var ignoreList = UserDefaults.standard.stringArray(forKey: ignoreDefaultContentListKey)
             ignoreList = ignoreList == nil ? [id] : ignoreList?.firstIndex(of: id) == nil ? ignoreList! + [id] : nil
             if ignoreList != nil { UserDefaults.standard.set(ignoreList!, forKey: ignoreDefaultContentListKey)}
-            print(UserDefaults.standard.stringArray(forKey: ignoreDefaultContentListKey))
         }
         
         var newFileNames = fileNames
